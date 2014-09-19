@@ -1,72 +1,79 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-		<title>ng-grid and test...</title>
+    <title>ng-grid and test...</title>
 
-		<style>	
-			.gridStyle {
-			    border: 1px solid rgb(212,212,212);
-			    width: 100%; 
-			    height: 150px;
-			}
-		</style>
+    <style>
+        .gridStyle {
+            border: 1px solid rgb(212, 212, 212);
+            width: 100%;
+            height: 150px;
+        }
+    </style>
 
 
     <!--[if lt IE 9]>
-      <script src="http://ivaynberg.github.io/select2/js/html5shim.js"></script>
+    <script src="http://ivaynberg.github.io/select2/js/html5shim.js"></script>
     <![endif]-->
 
 
- <link rel="stylesheet" href="style.css" />
-        <link rel="stylesheet" type="text/css" href="http://angular-ui.github.com/ng-grid/css/ng-grid.css" />
-        <link rel="stylesheet" type="text/css" href="style.css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
-        <script type="text/javascript" src="http://angular-ui.github.com/ng-grid/lib/ng-grid.debug.js"></script>
-        <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-        <script type="text/javascript" src="script.js"></script>
-        <link href="http://ivaynberg.github.com/select2/select2-master/select2.css" rel="stylesheet" type="text/css">
-        <script src="http://ivaynberg.github.com/select2/select2-master/select2.js"></script>
-		<script src="select2.js"></script>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" type="text/css" href="http://angular-ui.github.com/ng-grid/css/ng-grid.css"/>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+    <script type="text/javascript" src="http://angular-ui.github.com/ng-grid/lib/ng-grid.debug.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="script.js"></script>
+    <link href="http://ivaynberg.github.com/select2/select2-master/select2.css" rel="stylesheet" type="text/css">
+    <script src="http://ivaynberg.github.com/select2/select2-master/select2.js"></script>
+    <script src="select2.js"></script>
 
-		
-	</head>
 
-	<body>
-    <div ng-app="myApp">
-  		<div ng-controller="myCtrl">
+</head>
+
+<body>
+<div ng-app="myApp">
+    <div ng-controller="myCtrl">
         ui-select2 dropdown
         <select ui-select2 ng-model="testdropdown" style="width: 80pt;">
-          <option>Jos</option>
-          <option>Bert</option>
+            <option>Jos</option>
+            <option>Bert</option>
         </select>
         standard html dropdown
         <select ng-model="testdropdown" style="width: 80pt;">
-          <option>Jos</option>
-          <option>Bert</option>
+            <option>Jos</option>
+            <option>Bert</option>
         </select>
-        
-  			<p class="red"><b>The grid with simple dropdown</b></p>
-  			<div ng-grid="gridOptions1" class="gridStyle">
-  			</div>
-  
-  			<p class="red"><b>The grid with ui-select2 dropdown in cellTemplate, kind of works...</b></p>
-  			<div ng-grid="gridOptions2" class="gridStyle">
-  			</div>
-  
-  			<p class="red"><b>The grid with ui-select2 dropdown in <u>editable</u>CellTemplate doesn't allow you to pick a value...</b></p>
-  			<div ng-grid="gridOptions3" class="gridStyle">
-  			</div>
 
-  			<p class="red"><b>SOLUTION: The grid with ui-select2 dropdown in <u>editable</u>CellTemplate with a newly created directive that adds the functionality to talk to ng-grid</b></p>
-  			<div ng-grid="gridOptions4" class="gridStyle">
-  			</div>
-  		
-  		</div>
-    </div>		
-	</body>
+        <p class="red"><b>The grid with simple dropdown</b></p>
+
+        <div ng-grid="gridOptions1" class="gridStyle">
+        </div>
+
+        <p class="red"><b>The grid with ui-select2 dropdown in cellTemplate, kind of works...</b></p>
+
+        <div ng-grid="gridOptions2" class="gridStyle">
+        </div>
+
+        <p class="red"><b>The grid with ui-select2 dropdown in <u>editable</u>CellTemplate doesn't allow you to pick a
+            value...</b></p>
+
+        <div ng-grid="gridOptions3" class="gridStyle">
+        </div>
+
+        <p class="red"><b>SOLUTION: The grid with ui-select2 dropdown in <u>editable</u>CellTemplate with a newly
+            created directive that adds the functionality to talk to ng-grid</b></p>
+
+        <div ng-grid="gridOptions4" class="gridStyle">
+        </div>
+
+    </div>
+</div>
+</body>
 
 </html>
