@@ -1,5 +1,5 @@
 // main.js
-var app = angular.module('myApp', ['ui.grid', 'ui.grid.edit', 'ui.bootstrap']);
+var app = angular.module('myApp', ['ui.grid', 'ui.grid.edit', 'ngTagsInput', 'ui.bootstrap']);
 
 var ctrl = app.controller('MyCtrl', function ($scope, $modal) {
     $scope.myData = [
@@ -56,7 +56,7 @@ var ctrl = app.controller('MyCtrl', function ($scope, $modal) {
             {
                 name: 'xyz', // DJH some sort of hack for ui-grid 3.0
                 field: '',
-                displayName: 'Tag Input',
+                displayName: 'COO',
                 cellTemplate: $scope.cellTemplate
             }
         ]
@@ -66,11 +66,40 @@ var ctrl = app.controller('MyCtrl', function ($scope, $modal) {
     $scope.save = function () {
         console.log($modal);
         $modal.dismiss('cancel');
+    };
+
+    $scope.products = [
+        {product: "pMkkoroni", age: 50},
+        {product: "pTiancum", age: 43},
+        {product: "pJacob", age: 27},
+        {product: "pNephi", age: 29},
+        {product: "pEnos", age: 34}
+    ];
+
+    $scope.loadTags = function () {
+        var deferred = $q.defer();
+        deferred.resolve($scope.products);
+        return deferred.promise;
     }
 
 });
 
-var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
+var ModalInstanceCtrl = function ($scope, $modalInstance, $q, items) {
+
+    $scope.products = [
+        {text: "United States"},
+        {text: "Hawaii"},
+        {text: "South Africa"},
+        {text: "England"},
+        {text: "Greece"}
+    ];
+
+
+    $scope.loadTags = function () {
+        var deferred = $q.defer();
+        deferred.resolve($scope.products);
+        return deferred.promise;
+    };
 
     $scope.items = items;
     var name = items.name;

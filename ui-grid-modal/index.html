@@ -29,6 +29,7 @@
     <div class="modal-body">
         <!--<button>Hello</button>-->
         <form>
+            <tags-input add-from-autocomplete-only="true" ng-model="tags"><auto-complete source="loadTags($query)"></auto-complete></tags-input>
             <input data-ng-model="items.name"/>
             <!--<input data-ng-model="items.age"/>-->
             <button class="primary" data-ng-click="ok()">save</button>
