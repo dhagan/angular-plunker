@@ -11,12 +11,13 @@ var ctrl = app.controller('MyCtrl', function ($scope, $modal) {
     ];
 
     //var cellTemplate = '<div class="ngCellText"  data-ng-model="row"><button data-ng-click="updateSelectedRow(row,$event)">Edit</button></div>';
-    $scope.cellTemplate = '<div class="grid-action-cell"><a ng-click="updateSelectedRow(row.entity, $event);" href="#">{{row.entity.name}}</a></div>'
+    $scope.cellTemplate = '<div class="grid-action-cell"><a ng-click="updateSelectedRow(row, $event);" href="#">{{row.entity.name}}</a></div>'
 
-    $scope.doSomething = function (obj, $event) {
+    $scope.debugRow = function (row, $event) {
         $event.stopPropagation();
-        console.log ($event);
-        console.log(obj);
+        console.log(row);
+        console.log($event);
+
     };
 
     $scope.gridOptions = {
@@ -40,7 +41,7 @@ var ctrl = app.controller('MyCtrl', function ($scope, $modal) {
     };
     $scope.updateSelectedRow = function (row, $event) {
         //$event.stopPropagation();
-        console.log ($event);
+        console.log($event);
         console.log(row);
         $scope.myrow = row.entity;
         var modalInstance = $modal.open({
