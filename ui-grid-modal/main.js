@@ -40,7 +40,7 @@ var ctrl = app.controller('MyCtrl', function ($scope, $modal) {
         }
     };
 
-    $scope.cellTemplate = '<div class="grid-action-cell"><a ng-click="getExternalScopes().updateSelectedRow(row, $event);" href="#">{{row.entity.name}}</a></div>'
+    $scope.cellTemplate = '<div class="grid-action-cell"><a ng-click="getExternalScopes().updateSelectedRow(row, $event);" href="#">{{row.entity.name}}</a></div>';
 
     $scope.gridOptions = {
         data: 'myData',
