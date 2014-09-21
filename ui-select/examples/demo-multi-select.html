@@ -63,13 +63,30 @@
   <button class="btn btn-default btn-xs" ng-click="clear()">Clear ng-model</button>
 
   <h3>Array of strings</h3>
-  <ui-select multiple ng-model="multipleDemo.colors" theme="bootstrap" ng-disabled="disabled" style="width: 300px;">
-    <ui-select-match placeholder="Select colors...">{{$item}}</ui-select-match>
-    <ui-select-choices repeat="color in availableColors | filter:$select.search">
-      {{color}}
-    </ui-select-choices>
-  </ui-select>
-  <p>Selected: {{multipleDemo.colors}}</p>
+  <table class="table table-bordered table-condensed table-hover" style="width: 100px;">
+      <thead>
+      <tr>
+          <th><a data-ng-click="vm.setSort('entityName')" href="">NDC</a></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr data-ng-repeat="product in vm.certification.products">
+          <tr style="width: 50px;">
+          <td >
+              <ui-select multiple ng-model="multipleDemo.colors" theme="bootstrap" ng-disabled="disabled" style="width: 100px;">
+              <ui-select-match placeholder="Select colors...">{{$item}}</ui-select-match>
+              <ui-select-choices repeat="color in availableColors | filter:$select.search">
+                  {{color}}
+              </ui-select-choices>
+          </ui-select>
+              <!--
+              <p>Selected: {{multipleDemo.colors}}</p>
+              -->
+          </td>
+      </tr>
+      </tbody>
+  </table>
+
 
 </body>
 </html>

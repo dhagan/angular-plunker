@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui.grid', 'ui.grid.edit','ui.select']);
+var app = angular.module('app', ['ui.grid', 'ui.grid.edit','ui.select', 'ngSanitize']);
 
 app.controller('MainCtrl', ['$scope', function ($scope) {
     $scope.swapData = function () {
@@ -201,63 +201,8 @@ app.controller('DemoCtrl', function($scope, $http, $timeout) {
 
     };
 
-    $scope.personAsync = {selected : "wladimir@email.com"};
-    $scope.peopleAsync = [];
-
-    $timeout(function(){
-        $scope.peopleAsync = [
-            { name: 'Adam',      email: 'adam@email.com',      age: 12, country: 'United States' },
-            { name: 'Amalie',    email: 'amalie@email.com',    age: 12, country: 'Argentina' },
-            { name: 'Estefanía', email: 'estefania@email.com', age: 21, country: 'Argentina' },
-            { name: 'Adrian',    email: 'adrian@email.com',    age: 21, country: 'Ecuador' },
-            { name: 'Wladimir',  email: 'wladimir@email.com',  age: 30, country: 'Ecuador' },
-            { name: 'Samantha',  email: 'samantha@email.com',  age: 30, country: 'United States' },
-            { name: 'Nicole',    email: 'nicole@email.com',    age: 43, country: 'Colombia' },
-            { name: 'Natasha',   email: 'natasha@email.com',   age: 54, country: 'Ecuador' },
-            { name: 'Michael',   email: 'michael@email.com',   age: 15, country: 'Colombia' },
-            { name: 'Nicolás',   email: 'nicole@email.com',    age: 43, country: 'Colombia' }
-        ];
-    },3000);
-
-    $scope.counter = 0;
-    $scope.someFunction = function (item, model){
-        $scope.counter++;
-        $scope.eventResult = {item: item, model: model};
-    };
-
-    $scope.person = {};
-    $scope.people = [
-        { name: 'Adam',      email: 'adam@email.com',      age: 12, country: 'United States' },
-        { name: 'Amalie',    email: 'amalie@email.com',    age: 12, country: 'Argentina' },
-        { name: 'Estefanía', email: 'estefania@email.com', age: 21, country: 'Argentina' },
-        { name: 'Adrian',    email: 'adrian@email.com',    age: 21, country: 'Ecuador' },
-        { name: 'Wladimir',  email: 'wladimir@email.com',  age: 30, country: 'Ecuador' },
-        { name: 'Samantha',  email: 'samantha@email.com',  age: 30, country: 'United States' },
-        { name: 'Nicole',    email: 'nicole@email.com',    age: 43, country: 'Colombia' },
-        { name: 'Natasha',   email: 'natasha@email.com',   age: 54, country: 'Ecuador' },
-        { name: 'Michael',   email: 'michael@email.com',   age: 15, country: 'Colombia' },
-        { name: 'Nicolás',   email: 'nicolas@email.com',    age: 43, country: 'Colombia' }
-    ];
-
     $scope.availableColors = ['Red','Green','Blue','Yellow','Magenta','Maroon','Umbra','Turquoise'];
-
     $scope.multipleDemo = {};
     $scope.multipleDemo.colors = ['Blue','Red'];
-    $scope.multipleDemo.selectedPeople = [$scope.people[5], $scope.people[4]];
-    $scope.multipleDemo.selectedPeopleWithGroupBy = [$scope.people[8], $scope.people[6]];
-    $scope.multipleDemo.selectedPeopleSimple = ['samantha@email.com','wladimir@email.com'];
-
-
-    $scope.address = {};
-    $scope.refreshAddresses = function(address) {
-        var params = {address: address, sensor: false};
-        return $http.get(
-            'http://maps.googleapis.com/maps/api/geocode/json',
-            {params: params}
-        ).then(function(response) {
-                $scope.addresses = response.data.results;
-            });
-    };
-
 
 });
