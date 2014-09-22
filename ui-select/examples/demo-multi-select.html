@@ -55,6 +55,15 @@
   </style>
 </head>
 
+<script type="text/ng-template" id="myUISelect.html">
+    <ui-select multiple ng-model="multipleDemo.colors" theme="bootstrap" ng-disabled="disabled" style="width: 100px;">
+        <ui-select-match placeholder="Select colors...">{{$item}}</ui-select-match>
+        <ui-select-choices repeat="color in availableColors | filter:$select.search">
+            {{color}}
+        </ui-select-choices>
+    </ui-select>
+</script>
+
 <body ng-controller="DemoCtrl">
   <script src="demo.js"></script>
 

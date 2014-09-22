@@ -108,15 +108,7 @@
   </head>
   <body>
 
-<div ng-controller="MainCtrl">
-  <button type="button" class="btn btn-success" ng-click="swapData()">Swap Data</button>
-  <button type="button" class="btn btn-success" ng-click="addData()">Add Data</button>
-  <button type="button" class="btn btn-success" ng-click="removeFirstRow()">Remove First Row</button>
-  <button type="button" class="btn btn-success" ng-click="reset()">Reset</button>
-  <br>
-  <br>
-  <div ui-grid="gridOpts" ui-grid-edit  external-scopes="myViewModel" class="grid"></div>
-</div>
+
 
 
 <div ng-controller="DemoCtrl">
@@ -130,6 +122,18 @@
 <p>Selected: {{multipleDemo.colors}}</p>
 <hr>
 </div>
+
+
+<div ng-controller="MainCtrl">
+    <button type="button" class="btn btn-success" ng-click="swapData()">Swap Data</button>
+    <button type="button" class="btn btn-success" ng-click="addData()">Add Data</button>
+    <button type="button" class="btn btn-success" ng-click="removeFirstRow()">Remove First Row</button>
+    <button type="button" class="btn btn-success" ng-click="reset()">Reset</button>
+    <br>
+    <br>
+    <div ui-grid="gridOpts" ui-grid-edit  external-scopes="myViewModel" class="grid"></div>
+</div>
+
 
     <script src="app.js"></script>
   </body>

@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui.grid', 'ui.grid.edit','ui.select', 'ngSanitize']);
+var app = angular.module('app', ['ui.grid', 'ui.grid.edit', 'ui.select', 'ngSanitize']);
 
 app.controller('MainCtrl', ['$scope', function ($scope) {
     $scope.swapData = function () {
@@ -132,7 +132,12 @@ app.controller('MainCtrl', ['$scope', function ($scope) {
         }
     };
 
-    $scope.cellTemplate = '<div class="grid-action-cell"><a ng-click="getExternalScopes().updateSelectedRow(row, $event);" href="#">{{row.entity.name}}</a></div>';
+    //$scope.cellTemplate = '<div class="grid-action-cell"><a ng-click="getExternalScopes().updateSelectedRow(row, $event);" href="#">{{row.entity.name}}</a></div>';
+    $scope.cellTemplate = '<ui-select multiple ng-model="multipleDemo.colors" theme="bootstrap" ng-disabled="disabled" style="width: 300px;"> ' +
+        ' <ui-select-match placeholder="Select colors...">{{$item}}</ui-select-match>' +
+        ' <ui-select-choices repeat="color in availableColors | filter:$select.search"> {{color}} </ui-select-choices>' +
+        '</ui-select>';
+
 
     $scope.gridOpts = {
         data: data1,
@@ -165,33 +170,33 @@ app.controller('MainCtrl', ['$scope', function ($scope) {
 }]);
 
 
-app.controller('DemoCtrl', function($scope, $http, $timeout) {
+app.controller('DemoCtrl', function ($scope, $http, $timeout) {
     $scope.disabled = undefined;
     $scope.searchEnabled = undefined;
 
-    $scope.enable = function() {
+    $scope.enable = function () {
         $scope.disabled = false;
     };
 
-    $scope.disable = function() {
+    $scope.disable = function () {
         $scope.disabled = true;
     };
 
-    $scope.enableSearch = function() {
+    $scope.enableSearch = function () {
         $scope.searchEnabled = true;
     };
 
-    $scope.disableSearch = function() {
+    $scope.disableSearch = function () {
         $scope.searchEnabled = false;
     };
 
-    $scope.clear = function() {
+    $scope.clear = function () {
         $scope.person.selected = undefined;
         $scope.address.selected = undefined;
         $scope.country.selected = undefined;
     };
 
-    $scope.someGroupFn = function (item){
+    $scope.someGroupFn = function (item) {
 
         if (item.name[0] >= 'A' && item.name[0] <= 'M')
             return 'From A - M';
@@ -201,8 +206,8 @@ app.controller('DemoCtrl', function($scope, $http, $timeout) {
 
     };
 
-    $scope.availableColors = ['Red','Green','Blue','Yellow','Magenta','Maroon','Umbra','Turquoise'];
+    $scope.availableColors = ['Red', 'Green', 'Blue', 'Yellow', 'Magenta', 'Maroon', 'Umbra', 'Turquoise'];
     $scope.multipleDemo = {};
-    $scope.multipleDemo.colors = ['Blue','Red'];
+    $scope.multipleDemo.colors = ['Blue', 'Red'];
 
 });
